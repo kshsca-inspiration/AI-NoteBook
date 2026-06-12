@@ -30,7 +30,7 @@
 
 ## 🖥️ 页面布局
 
-![StudyNote 页面布局](./frontend/src/assets/hero.png)
+![StudyNote 页面布局](./image.png)
 
 ---
 
