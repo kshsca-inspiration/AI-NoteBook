@@ -1,0 +1,11 @@
+.superpowers/
+node_modules/
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+.idea/
+*.iml
+.vscode/
+*.log
+data/

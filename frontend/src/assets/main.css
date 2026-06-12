@@ -1,0 +1,217 @@
+/* 全局变量 - 紫粉主题色 */
+:root {
+  --bg-main: #F8F6FF;
+  --bg-panel: #F5F0FA;
+  --bg-card: #FFFFFF;
+  --border: #E8E0F0;
+  --primary: #A890D0;
+  --primary-light: #C8B8E8;
+  --primary-dark: #4A3F7A;
+  --text: #4A4060;
+  --text-light: #7B6F9B;
+  --text-muted: #B8A8D0;
+  --highlight: #FFEAA7;
+  --pink-light: #FFE0F0;
+  --pink: #E8B4B8;
+  --font-serif: 'Georgia', 'Noto Serif SC', 'STSong', 'SimSun', serif;
+  --font-sans: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-serif);
+  background: var(--bg-main);
+  color: var(--text);
+  height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 通用按钮 */
+.btn {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  color: var(--text);
+  transition: all 0.15s;
+}
+.btn:hover { background: #F0ECF8; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: white;
+  border: none;
+}
+.btn-primary:hover { opacity: 0.9; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* 输入框 */
+.input {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: var(--font-serif);
+  color: var(--text);
+  outline: none;
+  width: 100%;
+}
+.input:focus { border-color: var(--primary-light); }
+
+/* 滚动条美化 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 3px; }
+
+/* ===== Markdown 渲染样式 ===== */
+
+/* 高亮/荧光笔 */
+mark {
+  background: var(--highlight);
+  padding: 1px 4px;
+  border-radius: 2px;
+  color: inherit;
+}
+
+/* 行内代码 */
+:not(pre) > code {
+  background: #F3EEFA;
+  color: #D63384;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: 'Consolas', 'Courier New', 'Source Code Pro', monospace;
+  border: 1px solid var(--border);
+}
+
+/* 代码块 */
+pre {
+  background: #2D2A3A;
+  color: #E8E0FF;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+  font-family: 'Consolas', 'Courier New', 'Source Code Pro', monospace;
+}
+
+/* 引用块 */
+blockquote {
+  border-left: 3px solid var(--primary-light);
+  padding: 4px 12px;
+  margin: 8px 0;
+  color: var(--text-light);
+  background: #F8F5FF;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* 表格 */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 13px;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  text-align: left;
+}
+th {
+  background: #F0ECF8;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+/* 水平线 */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+/* 图片 */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin: 8px 0;
+}
+
+/* 任务列表 */
+input.md-checkbox {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+/* 包含任务列表的 li 去掉默认的 bullet */
+ul:has(input.md-checkbox) {
+  list-style: none;
+  padding-left: 8px;
+}
+ul:has(input.md-checkbox) li {
+  list-style: none;
+}
+
+/* 有序列表 & 无序列表 */
+.editor-preview ul,
+.chat-msg-bubble ul {
+  padding-left: 24px;
+  margin: 4px 0;
+}
+.editor-preview ol,
+.chat-msg-bubble ol {
+  padding-left: 24px;
+  margin: 4px 0;
+}
+.editor-preview li,
+.chat-msg-bubble li {
+  margin: 2px 0;
+  line-height: 1.6;
+}
+
+/* 标题样式 */
+.editor-preview h1, .chat-msg-bubble h1 { font-size: 1.4em; margin: 12px 0 6px; color: var(--primary-dark); }
+.editor-preview h2, .chat-msg-bubble h2 { font-size: 1.2em; margin: 10px 0 4px; color: var(--primary-dark); }
+.editor-preview h3, .chat-msg-bubble h3 { font-size: 1.1em; margin: 8px 0 4px; color: var(--primary-dark); }
+
+/* 段落间距 */
+.editor-preview p, .chat-msg-bubble p {
+  margin: 4px 0;
+  line-height: 1.7;
+}
+
+/* 链接 */
+.editor-preview a, .chat-msg-bubble a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* 粗体 / 斜体 */
+.editor-preview strong, .chat-msg-bubble strong { font-weight: 700; }
+.editor-preview em, .chat-msg-bubble em { font-style: italic; }
